@@ -1,0 +1,22 @@
+.sideBar {
+    margin-top: 20px;
+    color: #fff;
+    font-family: "JetBrains Mono";
+    font-size: 13px;
+    padding: 10px;
+}
+
+.friendsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sideBarItem {
+    text-align: center;
+}
+
+.sideBarItem img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('components/fonts/JetBrains Mono/JetBrainsMono-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.app-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+    "h h"
+    "n c";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 20px;
+}
+
+body {
+    background: #0C0C0C;
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    background: #090909;
+    box-shadow: 0 0 10px #7500DB;
+    font-family: "JetBrains Mono";
+}

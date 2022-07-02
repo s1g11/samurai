@@ -1,0 +1,29 @@
+.nav {
+    grid-area: n;
+    background: #7500DB;
+    box-shadow: 0 0 10px #7500DB;
+}
+
+.item a {
+    display: block;
+    padding: 5px 10px;
+    color: #fff;
+    font-family: "JetBrains Mono", serif;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.item a.activeLink {
+    color: #D1234D;
+}
+
+.item:nth-child(5) {
+    margin-top: 30px;
+}
+
+.item:hover a {
+    color: #A2D428;
+    background: #D1234D;
+    box-shadow: 0 0 5px #D1234D;
+}
+
