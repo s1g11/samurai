@@ -1,19 +1,24 @@
-import React, {LegacyRef} from "react";
+import React, {LegacyRef, RefObject} from "react";
 import s from './Posts.module.css'
 import {Post} from './Post/Post'
-import {postDataType, postType} from "../../../redux/state";
+import {postType, profilePageType} from "../../../redux/state";
 
 type PostsPropsType = {
-    postData: postDataType
+    profilePage: profilePageType
+    addPost: () => void
+    updatePostText: (newPostText: string | undefined) => void
 }
 
 export const Posts = (props: PostsPropsType) => {
 
-    let newPostElement:any = React.createRef()
+    let newPostElement = React.createRef<HTMLTextAreaElement>()
 
-    const addPost = () => {
-        let text = newPostElement.current.value
-        alert(text)
+    const clickAddPost = () => {
+        props.addPost()
+    }
+
+    const onPostChange = () => {
+        props.updatePostText(newPostElement.current?.value)
     }
 
     return (
@@ -21,14 +26,16 @@ export const Posts = (props: PostsPropsType) => {
             <h3>My posts</h3>
             <div className={s.addPost}>
                 <div>
-                    <textarea ref={newPostElement} placeholder="Type here your new post"></textarea>
+                    <textarea ref={newPostElement} onChange={onPostChange} value={props.profilePage.newPostText}
+                              placeholder="Type here your new post"></textarea>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={clickAddPost}>Add post</button>
                 </div>
             </div>
             <div>
-                {props.postData.reverse().map((p:postType) => <Post key={p.id} id={p.id} message={p.message} likeCounter={p.likeCounter}/>)}
+                {props.profilePage.postData.map((p: postType) => <Post key={p.id} id={p.id} message={p.message}
+                                                                       likeCounter={p.likeCounter}/>)}
             </div>
         </div>
     )

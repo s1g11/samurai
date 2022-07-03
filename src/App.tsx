@@ -12,6 +12,8 @@ import {stateType} from "./redux/state";
 
 type AppPropsType = {
     state: stateType
+    addPost: () => void
+    updatePostText: (newPostText:string | undefined) => void
 }
 
 function App(props: AppPropsType) {
@@ -22,7 +24,7 @@ function App(props: AppPropsType) {
                 <Header/>
                 <Nav sideBarData={props.state.sideBarData}/>
                 <div className="app-wrapper-content">
-                    <Route path="/profile" render={()=><Profile profilePageData={props.state.profilePage}/>}/>
+                    <Route path="/profile" render={()=><Profile profilePage={props.state.profilePage} addPost={props.addPost} updatePostText={props.updatePostText}/>}/>
                     <Route path="/dialogs" render={()=><Dialogs dialogsPageData={props.state.dialogsPage}/>}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
