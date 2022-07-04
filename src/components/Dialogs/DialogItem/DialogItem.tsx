@@ -4,7 +4,7 @@ import React from "react";
 
 type DialogItemPropsType = {
     name: string
-    id: number
+    id: string
 }
 
 export const DialogItem = (props: DialogItemPropsType) => {

@@ -1,12 +1,17 @@
-import React, {LegacyRef, RefObject} from "react";
+import React from "react";
 import s from './Posts.module.css'
 import {Post} from './Post/Post'
-import {postType, profilePageType} from "../../../redux/state";
+import {
+    addPostActionCreator,
+    dispatchActionType,
+    postType,
+    profilePageType,
+    updateNewPostTextActionCreator
+} from "../../../redux/state";
 
 type PostsPropsType = {
     profilePage: profilePageType
-    addPost: () => void
-    updatePostText: (newPostText: string | undefined) => void
+    dispatch: (action: dispatchActionType) => void
 }
 
 export const Posts = (props: PostsPropsType) => {
@@ -14,11 +19,14 @@ export const Posts = (props: PostsPropsType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 
     const clickAddPost = () => {
-        props.addPost()
+        props.dispatch(addPostActionCreator())
     }
 
     const onPostChange = () => {
-        props.updatePostText(newPostElement.current?.value)
+        if (newPostElement.current) {
+            let text = newPostElement.current?.value
+            newPostElement.current && props.dispatch(updateNewPostTextActionCreator(text))
+        }
     }
 
     return (

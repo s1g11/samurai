@@ -10,10 +10,10 @@ type DialogsPropsType = {
 
 export const Dialogs = (props: DialogsPropsType) => {
 
-    let newMessageElement: any = React.createRef()
+    let newMessageElement = React.createRef<HTMLTextAreaElement>()
 
     const sendMessage = () => {
-        let messageText = newMessageElement.current.value
+        let messageText = newMessageElement.current?.value
         alert(messageText)
     }
 
