@@ -1,9 +1,19 @@
+.item {
+    box-shadow: 0 0 5px #7500DB;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
 .item img {
     width: 50px;
     height: 50px;
     border-radius: 30px;
 }
 
-.item {
+.likeCounter {
     color: #FF9861;
+}
+
+.postText {
+    color: #fff;
 }

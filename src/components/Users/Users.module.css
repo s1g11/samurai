@@ -1,0 +1,45 @@
+.users {
+    color: #fff;
+    padding: 50px;
+}
+
+.SelectedUsersPage {
+    font-weight: bold;
+}
+
+.Paginator {
+    margin: 0 auto;
+    display: flex;
+    max-width: 600px;
+    justify-content: space-evenly;
+}
+
+.PaginatorItem {
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.PaginatorItem:hover {
+    background: #7500DB;
+    box-shadow: 0 0 10px #7500db;
+}
+
+.active {
+    background: #7500DB;
+    box-shadow: 0 0 10px #7500db;
+    cursor: default;
+}
+
+.dots {
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: default;
+}

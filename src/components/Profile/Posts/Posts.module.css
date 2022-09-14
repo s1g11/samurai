@@ -1,29 +1,15 @@
 .posts {
-    color: #A2D428;
     padding: 10px;
+}
+
+.myPosts {
+    color: #A2D428;
 }
 
 textarea {
     background: #3F3F3F;
     color: #fff;
     padding: 5px;
-}
-
-button {
-    padding: 5px 20px;
-    font-family: "JetBrains Mono";
-    background: #7500DB;
-    border: 0;
-    box-shadow: 0 0 10px #7500DB;
-    color: #fff;
-    transition: 0.1s;
-}
-
-button:hover {
-    background: #A2D428;
-    box-shadow: 0 0 10px #A2D428;
-    color: #000;
-    cursor: pointer;
 }
 
 .addPost {

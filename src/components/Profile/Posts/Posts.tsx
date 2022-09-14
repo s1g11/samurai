@@ -1,44 +1,31 @@
 import React from "react";
 import s from './Posts.module.css'
 import {Post} from './Post/Post'
-import {
-    addPostActionCreator,
-    dispatchActionType,
-    postType,
-    profilePageType,
-    updateNewPostTextActionCreator
-} from "../../../redux/state";
+import {postType, profilePageType} from "../../../redux/profile-reducer";
 
 type PostsPropsType = {
     profilePage: profilePageType
-    dispatch: (action: dispatchActionType) => void
+    clickAddPost: () => void
+    onPostChange: (text: string) => void
 }
 
 export const Posts = (props: PostsPropsType) => {
 
-    let newPostElement = React.createRef<HTMLTextAreaElement>()
-
-    const clickAddPost = () => {
-        props.dispatch(addPostActionCreator())
-    }
-
-    const onPostChange = () => {
-        if (newPostElement.current) {
-            let text = newPostElement.current?.value
-            newPostElement.current && props.dispatch(updateNewPostTextActionCreator(text))
-        }
-    }
+    const onKeyDownHandler = (key: string) => key === 'Enter' && props.clickAddPost()
 
     return (
         <div className={s.posts}>
-            <h3>My posts</h3>
+            <h3 className={s.myPosts}>My posts</h3>
             <div className={s.addPost}>
                 <div>
-                    <textarea ref={newPostElement} onChange={onPostChange} value={props.profilePage.newPostText}
-                              placeholder="Type here your new post"></textarea>
+                    <textarea onChange={(e) => props.onPostChange(e.currentTarget.value)}
+                              value={props.profilePage.newPostText}
+                              onKeyDown={(e)=>onKeyDownHandler(e.key)}
+                              placeholder="Type here your new post"
+                    ></textarea>
                 </div>
                 <div>
-                    <button onClick={clickAddPost}>Add post</button>
+                    <button onClick={props.clickAddPost}>Add post</button>
                 </div>
             </div>
             <div>
